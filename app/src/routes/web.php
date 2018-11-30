@@ -14,11 +14,15 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/welcome', function () {
+    return view('welcome');
+});
 
 Route::post('/rsvp', "RsvpController@confirm");
 Route::get('/rsvp', "RsvpController@confirm");
 Route::get('/confirmed', "RsvpController@confirmed");
 
+Route::get('/main', "GameShowController@question");
 Route::get('/main/question', "GameShowController@question");
 Route::get('/main/answers', "GameShowController@answers");
 Route::get('/main/score', "GameShowController@score");

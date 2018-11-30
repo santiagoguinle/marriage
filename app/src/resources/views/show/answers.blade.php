@@ -22,20 +22,19 @@
                         type: 'pie',
                         allowPointSelect: true,
                         keys: ['name', 'y', 'selected', 'sliced', 'colorIndex'],
-                        data: [['A) En unas vacaciones.', 29.9, false, false, 0],
-                            ['B) En el club', 71.5, false, true, 2],
-                            ['C) Son Primos', 106.4, false, false, 1],
-                            ['D) En una cita a ciegas.', 129.2, false, false, 3],
+                        data: [['A) En unas vacaciones.', 6, false, false, 0],
+                            ['B) En el club', 12, false, false, 1],
+                            ['C) Son Primos', 24, false, false, 2]
                         ],
                         showInLegend: false
                     }],
                 tooltip: {
                     formatter: function () {
                         //console.log(this);
-                        if (this.colorIndex == 2) {
-                            return 'Respuesta correcta';
+                        if (this.point.options.sliced) {
+                            return this.point.options.y +' Respuestas correctas';
                         }
-                        return 'Respuesta incorrecta';
+                        return this.point.options.y +' Respuestas incorrectas';
                     }
                 }
             });
@@ -60,7 +59,7 @@
             stroke-width: 2px;
         }
         .highcharts-pie-series .highcharts-data-label-connector {
-            stroke: white;
+            stroke: #dc3545;;
             stroke-dasharray: 4, 4;
             stroke-width: 4px;
         }
@@ -75,6 +74,19 @@
         }
         tspan{
             font-size: 16px;
+        }
+        
+        .highcharts-color-0{
+            fill:#dc3545;
+        }
+        .highcharts-color-1{
+            fill:#4CAF50;
+        }
+        .highcharts-color-2{
+            fill:#009688;
+        }
+        .highcharts-color-3{
+            fill:#9ae1ff;
         }
     </style>
 

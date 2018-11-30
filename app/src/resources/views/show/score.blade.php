@@ -70,7 +70,8 @@
             series: [{
                     name: 'Correctas',
                     data: [2, 4, 5, 6, 7, 8, 3, 2, 4, 2, 9, 3, 2, 4, 0, 6, 7, 8, 3, 2, 0, 2, 8, 3],
-                    showInLegend: false
+                    showInLegend: false,
+                    colorIndex:0
                 }]
         });
 
@@ -106,6 +107,9 @@
     .highcharts-credits{
         display: none;
     }
+    .highcharts-color-0{
+        fill:#dc3945;
+    }
 </style>
 @endsection
 
@@ -117,7 +121,7 @@
     </span>
 
     <span class="contact3-form-title">
-        1er Puesto: Mesa 11
+        1° Puesto: Mesa 11
     </span>
 
     <div id="container"></div>

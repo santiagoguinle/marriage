@@ -24,7 +24,7 @@
 </head>
 <body>
 
-	<div class="bg-contact3" style="background-image: url('/game/images/bg-01.jpg');">
+	<div class="bg-contact3" >
 		<div class="container-contact3">
 			<div class="wrap-contact3 .wrap-contact3-show">
 				

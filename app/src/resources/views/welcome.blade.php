@@ -111,7 +111,7 @@
                             <h4>Ella</h4>
                             <p>Es ñoña y tiene 27 años.<br>
                                 Abogada y medio artista.<br>
-                                Fan de Harry Potter, Star Wars y Girlmore Girls.<br>
+                                Fan de Harry Potter, Star Wars y Gilmore Girls.<br>
                                 Cumple el 21 de Mayo, todos los años.<br> #El110EsMuyGrande y #VióUnSeñorConBarba
                             </p>
                         </div>
@@ -280,9 +280,10 @@
                             <p>Para nosotros, lo importante es que puedas acompañarnos. Pero, si además podes ayudarnos con la luna de miel soñada, te dejamos nuestro CBU.</p>
 
                             <h5>
-                                Maria Lourdes Paz, Banco Nacion<br>
-                                CBU: 0110599530000065546551<br>
-                                Alias:&nbsp;REINA.TORNEO.CADENA <br>
+                                Paz Maria Lourdes, Banco Santander Río<br>
+                                Número de cuenta (en Pesos): 415-337741/9<br>
+                                CBU: 0720415388000033774190<br>
+                                Alias:&nbsp;REINA.TORNEO.CADENA
                             </h5>
 
                             <a class="btn btn-verde btn-lg" data-clipboard-text="0110599530000065546551">Copiar Número de CBU</a> 

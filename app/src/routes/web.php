@@ -22,11 +22,13 @@ Route::post('/rsvp', "RsvpController@confirm");
 Route::get('/rsvp', "RsvpController@confirm");
 Route::get('/confirmed', "RsvpController@confirmed");
 
-Route::get('/main', "GameShowController@question");
-Route::get('/main/question', "GameShowController@question");
-Route::get('/main/answers', "GameShowController@answers");
-Route::get('/main/score', "GameShowController@score");
+Route::get('/main', "QuizShowController@question");
+Route::get('/main/question', "QuizShowController@question");
+Route::get('/main/answers', "QuizShowController@answers");
+Route::get('/main/score', "QuizShowController@score");
 
-Route::get('/play', "GameShowController@playerLogin");
-Route::get('/play/answer', "GameShowController@playerAnswer");
-Route::get('/play/question', "GameShowController@playerQuestion");
+Route::get('/play', "QuizPlayerController@login");
+Route::post('/play', "QuizPlayerController@doLogin");
+Route::get('/play/answer', "QuizPlayerController@answer");
+Route::post('/play/answer', "QuizPlayerController@saveAnswer");
+Route::get('/play/question', "QuizPlayerController@question");

@@ -1,6 +1,6 @@
 @extends('layoutGame')
 
-@section('title', 'Pregunta #1')
+@section('title', 'Ingresa el Codigo')
 
 @section('scripts')
 @endsection
@@ -10,7 +10,8 @@
 
 @section('content')
 
-<form class="contact3-form validate-form" action="/play">
+<form class="contact3-form validate-form" action="/play" method="post">
+    {{ csrf_field() }}
     <span class="contact3-form-title">
         ¡Bienvenido al juego del casamiento!
     </span>
@@ -22,7 +23,7 @@
     </span>
 
     <div class="wrap-input3 validate-input wrap-contact3-show-options" data-validate="Ingresa el codigo de tu mesa">
-        <input class="input3" type="text" name="name" placeholder="ingresar aqui el codigo de tu mesa">
+        <input class="input3" type="text" name="code" placeholder="ingresar aqui el codigo de tu mesa">
         <span class="focus-input3"></span>
     </div>
 

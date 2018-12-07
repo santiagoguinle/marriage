@@ -13,10 +13,27 @@
         <!-- Bootstrap Core CSS -->
         <link href="/invite/css/bootstrap.min.css" rel="stylesheet">
 
+        <!-- Custom CSS -->
+        <link href="/invite/css/landing-page.css" rel="stylesheet">
+
         <!-- Custom Fonts -->
         <link href="/invite/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
         <meta name="csrf-token" content="{{ csrf_token() }}">
+
+        <style>
+            .table img{
+                max-height: 70px;
+                max-width: 150px;
+            }
+            th{
+                text-align: center
+            }
+            .table{
+                background: white;
+            }
+            
+        </style>
     </head>
 
     <body>
@@ -30,7 +47,7 @@
                         <div class="col-lg-12 col-sm-12 text-center">
                             <h2 class="section-heading" style="line-height:30px;margin-top:30px;margin-bottom:15px;">¡Invitados confirmados!</h2>
                             <div style="border: 12px #ffe083;border-style: double;padding: 15px;">
-                                <table style="width: 90%" >
+                                <table style="    max-width: 520px;margin: 0 auto;" class="table" >
                                     <thead>
                                         <tr>
                                             <th>
@@ -53,7 +70,7 @@
                                             <td>{{ $invited[0] }}</td>
                                             <td>{{ $invited[1] }}</td>
                                             <td>{{ $invited[2] }}</td>
-                                            <td><img src="{{ $invited[3] }}" style="max-height: 150px;max-width: 150px;"/></td>
+                                            <td><a href="{{ $invited[3] }}" target="_blank"><img src="{{ $invited[3] }}" /></a></td>
                                         </tr>
                                         @endforeach
 

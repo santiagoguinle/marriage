@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 
-class GameShowController extends Controller
+class QuizShowController extends Controller
 {
     /*
       |--------------------------------------------------------------------------
@@ -39,24 +39,4 @@ class GameShowController extends Controller
     {    
         return view('show/score');
     }
-    
-    public function playerLogin(\Illuminate\Http\Request $request)
-    {    
-        if($request->get("name")== "skywalker"){
-            return redirect("play/question");
-        }else{
-            return view('player/main');
-        }
-    }
-    
-    public function playerQuestion(\Illuminate\Http\Request $request)
-    {    
-        return view('player/question');
-    }
-    
-    public function playerAnswer(\Illuminate\Http\Request $request)
-    {    
-        return view('player/answer');
-    }
-
 }

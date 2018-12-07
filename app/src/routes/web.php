@@ -24,7 +24,9 @@ Route::get('/confirmed', "RsvpController@confirmed");
 
 Route::get('/main', "QuizShowController@question");
 Route::get('/main/question', "QuizShowController@question");
+Route::get('/main/next', "QuizShowController@nextQuestion");
 Route::get('/main/answers', "QuizShowController@answers");
+Route::get('/main/ajaxanswered', "QuizShowController@ajaxAnswers");
 Route::get('/main/score', "QuizShowController@score");
 
 Route::get('/play', "QuizPlayerController@login");

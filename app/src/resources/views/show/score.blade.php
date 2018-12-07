@@ -1,6 +1,6 @@
 @extends('layoutGame')
 
-@section('title', 'Pregunta #1')
+@section('title', 'Tabla de posiciones')
 
 @section('scripts')
 <script src="https://code.highcharts.com/js/highcharts.js"></script>
@@ -20,30 +20,13 @@
             },
             xAxis: {
                 categories: [
-                    'Mesa 1',
-                    'Mesa 2',
-                    'Mesa 3',
-                    'Mesa 4',
-                    'Mesa 5',
-                    'Mesa 6',
-                    'Mesa 7',
-                    'Mesa 8',
-                    'Mesa 9',
-                    'Mesa 10',
-                    'Mesa 11',
-                    'Mesa 12',
-                    'Mesa 13',
-                    'Mesa 14',
-                    'Mesa 15',
-                    'Mesa 16',
-                    'Mesa 17',
-                    'Mesa 18',
-                    'Mesa 19',
-                    'Mesa 20',
-                    'Mesa 21',
-                    'Mesa 22',
-                    'Mesa 23',
-                    'Mesa 24'
+                    @foreach ($score as $cat) 
+                            @if ($loop->first)
+                                    '{{ $cat->player }}'
+                            @else
+                                    , '{{ $cat->player }}'
+                            @endif
+                        @endforeach
                 ],
                 crosshair: true
             },
@@ -69,7 +52,15 @@
             },
             series: [{
                     name: 'Correctas',
-                    data: [2, 4, 5, 6, 7, 8, 3, 2, 4, 2, 9, 3, 2, 4, 0, 6, 7, 8, 3, 2, 0, 2, 8, 3],
+                    data: [
+                        @foreach ($score as $cat) 
+                            @if ($loop->first)
+                                    {{ $cat->score }} 
+                            @else
+                                    , {{ $cat->score }} 
+                            @endif
+                        @endforeach
+                    ],
                     showInLegend: false,
                     colorIndex:0
                 }]
@@ -121,7 +112,7 @@
     </span>
 
     <span class="contact3-form-title">
-        1° Puesto: Mesa 11
+        1° Puesto: @if($score[0]) {{ $score[0]->player }} @endif 
     </span>
 
     <div id="container"></div>
@@ -130,7 +121,7 @@
     </div>
 
     <div class="container-contact3-form-btn wrap-contact3-show-options">
-        <a href="/main/question" class="contact3-form-btn">
+        <a href="/main/next" class="contact3-form-btn">
             Siguiente pregunta
         </a>
     </div>

@@ -50,7 +50,7 @@
 
     <div class="container-contact3-form-btn wrap-contact3-show-options">
         <a href="/play/question" class="contact3-form-btn">
-            Ir a siguiente pregunta
+            Ir a la siguiente pregunta
         </a>
     </div>
 </form>

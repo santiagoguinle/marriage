@@ -1,6 +1,6 @@
 @extends('layoutGame')
 
-@section('title', 'Respuestas #1')
+@section('title', 'Respuestas #{{ $question->order }}')
 
 @section('scripts')
 <script src="https://code.highcharts.com/js/highcharts.js"></script>
@@ -15,23 +15,28 @@
                 },
 
                 xAxis: {
-                    categories: ['A', 'B', 'C', 'D']
+                    categories: ["A","B","C","D"]
                 },
 
                 series: [{
                         type: 'pie',
                         allowPointSelect: true,
-                        keys: ['name', 'y', 'selected', 'sliced', 'colorIndex'],
-                        data: [['A) En unas vacaciones.', 6, false, false, 0],
-                            ['B) En el club', 12, false, false, 1],
-                            ['C) Son Primos', 24, false, false, 2]
+                        keys: ['name', 'y', 'selected', 'sliced', 'colorIndex','correct'],
+                        data: [
+                            @foreach($answers as $key=>$ans)
+                                @if ($loop->first)
+                                @else 
+                                    , 
+                                @endif
+                                ['{{ $ans->option }}', {{ $ans->selected }}, false, {{ $ans->is_correct }}, {{ $key }},{{ $ans->is_correct }}]
+                            @endforeach
                         ],
                         showInLegend: false
                     }],
                 tooltip: {
                     formatter: function () {
                         //console.log(this);
-                        if (this.point.options.sliced) {
+                        if (this.point.options.correct) {
                             return this.point.options.y +' Respuestas correctas';
                         }
                         return this.point.options.y +' Respuestas incorrectas';
@@ -95,11 +100,11 @@
 @section('content')
 <form class="contact3-form validate-form">
     <span class="contact3-form-subtitle">
-        Respuestas #1
+        Respuestas #{{ $question->order }}
     </span>
 
     <span class="contact3-form-title">
-        ¿COMO SE CONOCIERON SANTIAGO Y LOURDES?
+        {{ $question->question }}
     </span>
 
     
@@ -124,7 +129,7 @@
         <a href="/main/score" class="contact3-form-btn">
             Ver Puntajes
         </a>
-        <a href="/main/question" class="contact3-form-btn">
+        <a href="/main/next" class="contact3-form-btn">
             Siguiente pregunta
         </a>
     </div>

@@ -1,18 +1,31 @@
 @extends('layoutGame')
 
-@section('title', 'Pregunta #1')
+@section('title', 'Pregunta #{{ $question->order }}')
 
 @section('scripts')
 <script type="text/javascript">
-    document.addEventListener('DOMContentLoaded', function () {
         var bar = new ProgressBar.Path('#heart-path', {
             easing: 'easeInOut',
             duration: 1400
         });
 
         bar.set(0);
-        bar.animate(0.50);  // Number from 0.0 to 1.0
-    })
+        
+        function animate(countAnswers){
+            bar.animate(countAnswers);  // Number from 0.0 to 1.0
+            $('#percent_answers')[0].innerHTML=Math.round(countAnswers*1000)/10 +"%";
+        }
+        function askBar(){
+            $.get( "/main/ajaxanswered", { "question":{{ $question->id }} } )
+            .done(function( data ) {
+               animate(data.length/24);
+               setTimeout("askBar()", 5000);
+            });
+        }
+        
+        animate({{ count($answers)/24 }});        
+        setTimeout("askBar()", 5000);
+    
 </script>
 @endsection
 
@@ -42,37 +55,21 @@
 @section('content')
 <form class="contact3-form validate-form">
     <span class="contact3-form-subtitle">
-        Pregunta #1
+                Pregunta N°{{ $question->order }}
     </span>
 
     <span class="contact3-form-title">
-        ¿COMO SE CONOCIERON SANTIAGO Y LOURDES?
+        {{ $question->question }}
     </span>
 
     <div class="wrap-contact3-form-radio wrap-contact3-show-options">
+        @foreach ($question->options as $key=>$option)
         <div class="contact3-form-radio m-r-42">
             <label class="label-radio3" for="radio1">
-                A) En unas vacaciones.
+                  Opcion {{ $key+1}}: {{ $option->option }}
             </label>
         </div>
-
-        <div class="contact3-form-radio">
-            <label class="label-radio3" for="radio2">
-                B) En el club
-            </label>
-        </div>
-
-        <div class="contact3-form-radio">
-            <label class="label-radio3" for="radio3">
-                C) Son Primos
-            </label>
-        </div>
-
-        <div class="contact3-form-radio">
-            <label class="label-radio3" for="radio4">
-                D) En una cita a ciegas.
-            </label>
-        </div>
+        @endforeach
     </div>
 
     <div class="wrap-contact3-show-options">
@@ -82,7 +79,11 @@
                 <path fill-opacity="0" stroke-width="1" stroke="#bbb" d="M81.495,13.923c-11.368-5.261-26.234-0.311-31.489,11.032C44.74,13.612,29.879,8.657,18.511,13.923  C6.402,19.539,0.613,33.883,10.175,50.804c6.792,12.04,18.826,21.111,39.831,37.379c20.993-16.268,33.033-25.344,39.819-37.379  C99.387,33.883,93.598,19.539,81.495,13.923z"/>
                 <path id="heart-path" fill-opacity="0" stroke-width="3" stroke="#ED6A5A" d="M81.495,13.923c-11.368-5.261-26.234-0.311-31.489,11.032C44.74,13.612,29.879,8.657,18.511,13.923  C6.402,19.539,0.613,33.883,10.175,50.804c6.792,12.04,18.826,21.111,39.831,37.379c20.993-16.268,33.033-25.344,39.819-37.379  C99.387,33.883,93.598,19.539,81.495,13.923z"/>
             </svg>
-            <div id="percent_answers">50%</div>
+            <div id="percent_answers" style="animation-duration: 3s;
+  animation-timing-function: cubic-bezier(0.650, -0.550, 0.250, 1.500);
+  animation-iteration-count: infinite;
+  animation-name: fade;
+  ">{{ round(count($answers)/24*100,1) }}%</div>
         </div>
     </div>
 

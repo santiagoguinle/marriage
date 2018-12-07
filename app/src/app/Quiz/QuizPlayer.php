@@ -95,13 +95,13 @@ class QuizPlayer extends Model
 
     public function saveAnswer($question_id, $answer_id, $player_id)
     {
-        $answers = $this
+        $doesntExists = $this
                 ->from("quiz_answers")
                 ->where("quiz_answers.question_id", "=", DB::raw("'$question_id'"))
                 ->where("quiz_answers.question_option_id", "=", DB::raw("'$answer_id'"))
                 ->where("quiz_answers.player_id", "=", DB::raw("'$player_id'"))
-                ->get();
-        if (count($answers) == 0) {
+                ->doesntExist();
+        if ($doesntExists) {
             $a = DB::table('quiz_answers')->insert(
                     ['question_id' => $question_id, 'question_option_id' => $answer_id, 'player_id' => $player_id]
             );

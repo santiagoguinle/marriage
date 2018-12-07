@@ -33,11 +33,11 @@ class QuizPlayerController extends Controller
         if ($request->post("code")) {
             $QuizPlayer = new QuizPlayer();
             $player = $QuizPlayer->loginByCode($request->post("code"));
-            if ($player->id>0) {
+            if ($player and $player->id>0) {
                 return redirect("play/question");
             }
         }
-        return redirect("play/login");
+        return redirect("play");
     }
     
     public function login(\Illuminate\Http\Request $request)

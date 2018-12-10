@@ -59,7 +59,7 @@
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
                             <li>
-                                <a href="#quien">Quienes</a>
+                                <a href="#quien">Quiénes</a>
                             </li>
                             <li>
                                 <a href="#como">Cómo</a>
@@ -97,7 +97,8 @@
                                  padding: 50px;
                                  background-size: 255px;">
                             <h4>Él</h4>
-                            <p>Es "de sistemas" y tiene 33 años. <br>
+                            <p>Santiago Mariano Guinle<br>
+                                Es "de sistemas" y tiene 33 años. <br>
                                 Hincha de All Boys, workaholic y se cree geek.<br>
                                 Fanatico de PHP, Arduino y los Zombies. <br>
                                 Quizo pedirle casamiento mientras buceaban! <br> 
@@ -109,8 +110,9 @@
                                  padding: 50px;
                                  background-size: 255px;">
                             <h4>Ella</h4>
-                            <p>Es preciosa, tiene 27 años y le encanta dormir.<br>
-                                Noña, Abogada y medio artista.<br>
+                            <p>María Lourdes Paz<br>
+                                Es preciosa, tiene 27 años y le encanta dormir.<br>
+                                Ñoña, Abogada y medio artista.<br>
                                 Fan de Harry Potter, Star Wars y Gilmore Girls.<br>
                                 Le encanta su compleaños y las sorpresitas.<br> 
                                 #El110EsMuyGrande y #VióUnSeñorConBarba
@@ -213,7 +215,11 @@
                         </div>
 
                         <div class="col-md-offset-3 col-md-6 text-center " id="cancel_rsvp" style="display:none">
-                            <video src="/invite/img/cancel.mp4" autoplay loop ></video>
+                            <video width="" muted="" autoplay="autoplay" poster="https://statics.memondo.com/p/99/gifs/2014/04/GIF_193856_b097a47b741341ba966c7c35bdb4ab25_cuando_la_chica_que_te_gusta_te_dice_que_tiene_novio_thumb.jpg?cb=6215638" loop="">
+                                    <source src="https://statics.memondo.com/p/99/gifs/2014/04/GIF_193856_b097a47b741341ba966c7c35bdb4ab25_cuando_la_chica_que_te_gusta_te_dice_que_tiene_novio.webm" type="video/webm">
+                                    <source src="https://statics.memondo.com/p/99/gifs/2014/04/GIF_193856_b097a47b741341ba966c7c35bdb4ab25_cuando_la_chica_que_te_gusta_te_dice_que_tiene_novio.mp4" type="video/mp4">
+                                    Tu navegador no soporta HTML5 video
+                            </video>
                             <p>Dejanos un mensaje! (¡no olvides firmarlo!)</p>
                             <form action="/rsvp">  
                                 <div class="form-group row">

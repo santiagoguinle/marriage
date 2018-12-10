@@ -37,6 +37,10 @@ class QuizShowController extends Controller
     {
         $QuizShow = new \App\Quiz\QuizShow();
         $question = $QuizShow->getQuestion(session("active_question"));
+        if(!$question){
+            session(["active_question" => 0]);
+            return $this->nextQuestion();
+        }
         $answers = $QuizShow->getAnswers(session("active_question"));
         return view('show/question', ["question" => $question, "answers" => $answers]);
     }
@@ -59,7 +63,6 @@ class QuizShowController extends Controller
         $QuizShow = new \App\Quiz\QuizShow();
         $question = $QuizShow->getQuestion(session("active_question"));
         $answers = $QuizShow->getAnswersScore(session("active_question"));
-        session(["active_question"=>session("active_question")+1]);
         return view('show/answers', ["question" => $question, "answers" => $answers]);
     }
 

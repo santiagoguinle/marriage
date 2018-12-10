@@ -32,7 +32,7 @@ class QuizShow extends Model
                 })
                 ->join("quiz_players", "quiz_answers.player_id", "quiz_players.id")
                 ->where("quizs.available", ">=", "1")
-                ->orderBy(DB::raw("'score'"), "desc")
+                ->orderBy(DB::raw("sum(quiz_question_options.value)"), "desc")
                 ->groupBy("quiz_players.id")
                 ->get();
         return $query;

@@ -31,15 +31,17 @@ class RsvpController extends Controller
 
     public function confirm(\Illuminate\Http\Request $request)
     {
+        if($request->get("cancel")){
+            
+            
+        }
+        
+        
         $filename = $request->post("name") . $request->post("lastname") . "." . strtolower(pathinfo($_FILES['autofoto']['name'], PATHINFO_EXTENSION));
-        $path = $request->file('autofoto')->storeAs(
-                'avatars', $filename
-        );
-
+        $path = $request->file('autofoto')->storeAs('avatars', $filename);
         $data = $request->post("name") . "\t" . $request->post("lastname") . "\t" . $request->post("dieta") . "\t" . '/avatars/'. $filename;
-
         Storage::append($this->answersFile, $data);
-
+        
         $response = array('uploaded' => ($path) ? true : false,
             'name' => $request->post("name"),
             'lastname' => $request->post("lastname"),

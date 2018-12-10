@@ -98,7 +98,6 @@ class QuizPlayer extends Model
         $doesntExists = $this
                 ->from("quiz_answers")
                 ->where("quiz_answers.question_id", "=", DB::raw("'$question_id'"))
-                ->where("quiz_answers.question_option_id", "=", DB::raw("'$answer_id'"))
                 ->where("quiz_answers.player_id", "=", DB::raw("'$player_id'"))
                 ->doesntExist();
         if ($doesntExists) {

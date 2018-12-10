@@ -59,7 +59,7 @@
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
                             <li>
-                                <a href="#quien">Quién</a>
+                                <a href="#quien">Quienes</a>
                             </li>
                             <li>
                                 <a href="#como">Cómo</a>
@@ -98,10 +98,10 @@
                                  background-size: 255px;">
                             <h4>Él</h4>
                             <p>Es "de sistemas" y tiene 33 años. <br>
-                                Marvelcinéfilo, workaholic y un poco geek.<br>
-                                Fan de PHP y de casi todo. <br>
+                                Hincha de All Boys, workaholic y se cree geek.<br>
+                                Fanatico de PHP, Arduino y los Zombies. <br>
                                 Quizo pedirle casamiento mientras buceaban! <br> 
-                                #PuedeFallar y #LaSegundaEsLaVencida
+                                #PuedeFallar y #LaSegundaVezDijoSiQuiero
                             </p>
                         </div>
                         <div class="col-lg-5 col-md-5 text-center">
@@ -109,10 +109,11 @@
                                  padding: 50px;
                                  background-size: 255px;">
                             <h4>Ella</h4>
-                            <p>Es ñoña y tiene 27 años.<br>
-                                Abogada y medio artista.<br>
+                            <p>Es preciosa, tiene 27 años y le encanta dormir.<br>
+                                Noña, Abogada y medio artista.<br>
                                 Fan de Harry Potter, Star Wars y Gilmore Girls.<br>
-                                Cumple el 21 de Mayo, todos los años.<br> #El110EsMuyGrande y #VióUnSeñorConBarba
+                                Le encanta su compleaños y las sorpresitas.<br> 
+                                #El110EsMuyGrande y #VióUnSeñorConBarba
                             </p>
                         </div>
                     </div>
@@ -204,12 +205,37 @@
                             <a href="javascript:$('.choose_rsvp').hide();$('#confirm_rsvp').show()" target="_blank" class="btn btn-verde btn-lg">Confirmar Asistencia</a> 
                         </div>
                         <div class="col-md-offset-3 col-md-6 text-center choose_rsvp">
-                            <a href="mailto:marialourdespaz@gmail.com?Subject=Casamiento%20Lali%20y%20Tuti" target="_blank" class="btn  btn-lg"> <svg class="broken" viewBox="0 0 24 24">
-                                <path d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C8.17,3 8.82,3.12 9.44,3.33L13,9.35L9,14.35L12,21.35V21.35M16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35L11,14.35L15.5,9.35L12.85,4.27C13.87,3.47 15.17,3 16.5,3Z" /> </svg> No puedo ir <svg class="broken" viewBox="0 0 24 24">
-                                <path d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C8.17,3 8.82,3.12 9.44,3.33L13,9.35L9,14.35L12,21.35V21.35M16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35L11,14.35L15.5,9.35L12.85,4.27C13.87,3.47 15.17,3 16.5,3Z" />
-                                </svg></a> 
+                            <a href="javascript:$('.choose_rsvp').hide();$('#cancel_rsvp').show()" target="_blank" class="btn  btn-lg"> 
+                                No puedo ir 
+                                <svg class="broken" viewBox="0 0 24 24"><path d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C8.17,3 8.82,3.12 9.44,3.33L13,9.35L9,14.35L12,21.35V21.35M16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35L11,14.35L15.5,9.35L12.85,4.27C13.87,3.47 15.17,3 16.5,3Z" />
+                                </svg>
+                            </a> 
                         </div>
 
+                        <div class="col-md-offset-3 col-md-6 text-center " id="cancel_rsvp" style="display:none">
+                            <video src="/invite/img/cancel.mp4" autoplay loop ></video>
+                            <p>Dejanos un mensaje! (¡no olvides firmarlo!)</p>
+                            <form action="/rsvp">  
+                                <div class="form-group row">
+                                    <div class="col-sm-2"></div>
+                                    <div class="col-sm-8">
+                                        <div class="center-block" >
+                                            <textarea id="cancel" name="cancel"  class="form-control" placeholder="Aqui tu mensaje"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2"></div>
+                                </div>
+                                
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <div class="center-block" >
+                                            <input id="submit_cancel" name="submit_cancel" type="submit" value="Enviar mensaje a los novios" class="btn btn-verde btn-lg" >
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        
                         <div class="col-md-offset-3 col-md-6 text-center " id="confirm_rsvp" style="display:none">
                             <p>Por favor completar una vez por cada persona!</p>
                             <form action="/rsvp">  
@@ -280,10 +306,10 @@
                             <p>Para nosotros, lo importante es que puedas acompañarnos. Pero, si además podes ayudarnos con la luna de miel soñada, te dejamos nuestro CBU.</p>
 
                             <h5>
-                                Paz Maria Lourdes, Banco Santander Río<br>
-                                Número de cuenta (en Pesos): 415-337741/9<br>
-                                CBU: 0720415388000033774190<br>
-                                Alias:&nbsp;REINA.TORNEO.CADENA
+                                Paz Maria Lourdes, Banco Nación<br>
+                                Número de cuenta (en Pesos): 00020006554655<br>
+                                CBU: 0110599530000065546551<br>
+                                Alias:&nbsp;Santi.Luli.Panceta
                             </h5>
 
                             <a class="btn btn-verde btn-lg" data-clipboard-text="0110599530000065546551">Copiar Número de CBU</a> 
@@ -599,29 +625,34 @@ $(function () {
                 $('div.page').show();
                 resetChat();
                 insertChat("me", "Lulindi...", 0);
-                insertChat("you", "Hola Tatito, como estas?", 1500);
-                insertChat("me", "bien, acá... ", 3500);
-                insertChat("me", "che... estaba pensando...", 4500);
-                insertChat("me", "Te querés casar conmigo?", 5500);
-                insertChat("you", "...", 7000);
-                insertChat("you", "Vos estás loco?", 9000);
-                insertChat("me", "<svg style='width:24px;height:24px' viewBox='0 0 24 24'><path fill='#000000' d='M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C8.17,3 8.82,3.12 9.44,3.33L13,9.35L9,14.35L12,21.35V21.35M16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35L11,14.35L15.5,9.35L12.85,4.27C13.87,3.47 15.17,3 16.5,3Z' /></svg>", 10000);
-                insertChat("me", "que? como? pero, para, porque...", 11000);
-                insertChat("you", "Era chiste!", 12000);
-                insertChat("you", "Obvio que si.", 13000);
-                insertChat("me", ":) :) :)", 13500);
-                insertChat("me", "Genial! Cuando te parece? Febrero está ok?", 15000);
-                insertChat("you", "Si, me encanta, Cuando abren el parque de Star Wars?", 16000);
-                insertChat("you", "Panceta viene no?", 18000);
-                insertChat("you", "Qué aros me voy a poner?", 20000);
-                insertChat("me", "Vemos...", 21000);
-                insertChat("me", "Vos encargate de pedirle a todos que confirmen", 21500);
-                insertChat("me", "y de que suban fotos lindas", 22000);
-                insertChat("you", "Dale, buenisimo!", 23000);
+                insertChat("you", "Hola Amor, como estas?", 1500);
+                insertChat("me", "bien, acá... ", 2500);
+                insertChat("me", "che... estaba pensando...", 3500);
+                insertChat("me", "Te querés casar conmigo?", 4500);
+                insertChat("you", "...", 6000);
+                insertChat("you", "Vos estás loco?", 6500);
+                insertChat("me", "<svg style='width:24px;height:24px' viewBox='0 0 24 24'><path fill='#000000' d='M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C8.17,3 8.82,3.12 9.44,3.33L13,9.35L9,14.35L12,21.35V21.35M16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35L11,14.35L15.5,9.35L12.85,4.27C13.87,3.47 15.17,3 16.5,3Z' /></svg>", 7300);
+                insertChat("me", "que? como? pero, para, porque...", 8200);
+                insertChat("you", "Era chiste!", 10000);
+                insertChat("you", "Obvio que si.", 10500);
+                insertChat("me", ":) :) :)", 11500);
+                insertChat("me", "Genial! Cuando te parece? Mejor de día no? Domingo de verano.", 12000);
+                insertChat("you", "Si, me encanta, bien tempranito...", 13500);
+                insertChat("you", "Tengo que conseguir vestido! y algo azul!", 14200);
+                insertChat("you", "..Y qué aros me voy a poner? :s", 15600);
+                insertChat("me", "Jaja Vemos...", 16700);
+                insertChat("me", "Vos encargate de pedirle a todos que confirmen", 17600);
+                insertChat("me", "y de que suban fotos lindas!", 18300);
+                insertChat("me", "que seguro despues aparecen en la fiesta", 19000);
+                insertChat("me", "en una pantalla GIGANTE", 20000);
+                insertChat("you", "jaja, Dale, buenisimo!", 21000);
+                insertChat("me", "che vos! que estas leyendo mi whatsapp.", 22000);
+                insertChat("me", "copate, subi tu selfie fachera", 23000);
+                insertChat("me", "mirá que sin selfie no te dejan entrar a la fiesta", 25000);
                 setTimeout(function () {
                     $('div.site').show();
                     $('div.page').hide();
-                }, 26000);
+                }, 36000);
             }
 
         </script>

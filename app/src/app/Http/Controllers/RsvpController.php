@@ -29,18 +29,20 @@ class RsvpController extends Controller
         $this->answersFile = 'public/answers.csv';
     }
 
+    public function cancel(\Illuminate\Http\Request $request)
+    {
+        $RSVPAnswer=new \App\RSVPAnswer();
+        $RSVPAnswer->saveCancellation($request->post("cancel"));
+        return redirect("/");
+    }
+    
     public function confirm(\Illuminate\Http\Request $request)
     {
-        if($request->get("cancel")){
-            
-            
-        }
-        
-        
         $filename = $request->post("name") . $request->post("lastname") . "." . strtolower(pathinfo($_FILES['autofoto']['name'], PATHINFO_EXTENSION));
         $path = $request->file('autofoto')->storeAs('avatars', $filename);
-        $data = $request->post("name") . "\t" . $request->post("lastname") . "\t" . $request->post("dieta") . "\t" . '/avatars/'. $filename;
-        Storage::append($this->answersFile, $data);
+        
+        $RSVPAnswer=new \App\RSVPAnswer();
+        $RSVPAnswer->saveConfirmed($request->post("name"), $request->post("lastname"), $request->post("dieta"),'/avatars/'. $filename);
         
         $response = array('uploaded' => ($path) ? true : false,
             'name' => $request->post("name"),
@@ -56,14 +58,10 @@ class RsvpController extends Controller
 
     public function confirmed(\Illuminate\Http\Request $request)
     {
-        
-        $content=Storage::get($this->answersFile);
-        $lines= explode("\n", $content);
-        $all_data = array();
-        foreach($lines as $data){
-            array_push($all_data, explode("\t", $data));
-        }
-        return view('confirmed', ['confirmed' => $all_data]);
+        $RSVPAnswer=new \App\RSVPAnswer();
+        $confirmed=$RSVPAnswer->getAllConfirmed();
+        $cancelled=$RSVPAnswer->getAllCancelled();
+        return view('confirmed', ['confirmed' => $confirmed,'cancelled'=>$cancelled]);
     }
 
 }

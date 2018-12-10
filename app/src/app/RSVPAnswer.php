@@ -6,7 +6,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Model;
 use DB;
 
-class RSVPAsnwer extends Model
+class RSVPAnswer extends Model
 {
 
     protected $table = "rsvp_answers";
@@ -16,7 +16,7 @@ class RSVPAsnwer extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'lastname','message','confirm','message'
+        'id','name', 'lastname','image','diet'
     ];
 
     /**
@@ -26,23 +26,23 @@ class RSVPAsnwer extends Model
      */
     protected $hidden = [];
     
-    public function saveConfirmed()
+    public function saveConfirmed($name,$lastname,$diet,$image)
     {
-        $playerLogin = self::where("code", "=", $code)->get()->first();
-        if(!$playerLogin){
-            return;
-        }
-        session(['player' => $playerLogin]);
-        return $playerLogin;
+        return DB::table('invites_confirmations')->insert(
+                    ['name' => $name, 'lastname' => $lastname, 'diet'=> $diet,'image'=>$image]
+            );
     }
     
-    public function saveCancellation()
+    public function saveCancellation($message)
     {
-        $playerLogin = self::where("code", "=", $code)->get()->first();
-        if(!$playerLogin){
-            return;
-        }
-        session(['player' => $playerLogin]);
-        return $playerLogin;
+        return DB::table('invites_cancellations')->insert(
+                    ['message' => $message]
+            );
+    }
+    public function getAllConfirmed(){
+        return $this->from("invites_confirmations")->get();
+    }
+    public function getAllCancelled(){
+        return $this->from("invites_cancellations")->get();
     }
 }

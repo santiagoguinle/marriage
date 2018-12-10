@@ -67,10 +67,10 @@
                                     <tbody>
                                         @foreach ($confirmed as $invited)
                                         <tr>
-                                            <td>{{ $invited[0] }}</td>
-                                            <td>{{ $invited[1] }}</td>
-                                            <td>{{ $invited[2] }}</td>
-                                            <td><a href="{{ $invited[3] }}" target="_blank"><img src="{{ $invited[3] }}" /></a></td>
+                                            <td>{{ $invited['name'] }}</td>
+                                            <td>{{ $invited['lastname'] }}</td>
+                                            <td>{{ $invited['diet'] }}</td>
+                                            <td><a href="{{ $invited['image'] }}" target="_blank"><img src="{{ $invited['image'] }}" /></a></td>
                                         </tr>
                                         @endforeach
 
@@ -80,6 +80,30 @@
                         </div>
                     </div>
 
+                    <div class="row">
+                        <div class="col-lg-12 col-sm-12 text-center">
+                            <h2 class="section-heading" style="line-height:30px;margin-top:30px;margin-bottom:15px;">¡mensajes de cancelacion!</h2>
+                            <div style="border: 12px #ffe083;border-style: double;padding: 15px;">
+                                <table style="    max-width: 520px;margin: 0 auto;" class="table" >
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                mensaje
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($cancelled as $invited)
+                                        <tr>
+                                            <td>{{ $invited['message'] }}</td>
+                                        </tr>
+                                        @endforeach
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <!-- /.container -->
 

@@ -19,6 +19,7 @@ Route::get('/welcome', function () {
 });
 
 Route::post('/rsvp', "RsvpController@confirm");
+Route::post('/rsvp/cancellation', "RsvpController@cancel");
 Route::get('/rsvp', "RsvpController@confirm");
 Route::get('/confirmed', "RsvpController@confirmed");
 

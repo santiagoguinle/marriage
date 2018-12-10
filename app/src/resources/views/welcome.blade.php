@@ -221,7 +221,8 @@
                                     Tu navegador no soporta HTML5 video
                             </video>
                             <p>Dejanos un mensaje! (¡no olvides firmarlo!)</p>
-                            <form action="/rsvp">  
+                            <form action="/rsvp/cancellation" method="post">  
+                                {{ csrf_field() }}
                                 <div class="form-group row">
                                     <div class="col-sm-2"></div>
                                     <div class="col-sm-8">

@@ -493,7 +493,7 @@ $(function () {
                     showCaption: false,
                     browseLabel: '',
                     removeLabel: 'Quitar',
-                    browseIcon: '<i class="glyphicon glyphicon-picture"></i> Confirmar', /*<i class="glyphicon glyphicon-picture"></i>'*/
+                    browseIcon: 'Para confirmar subí tu selfie acá: <i class="glyphicon glyphicon-picture"></i> ', /*<i class="glyphicon glyphicon-picture"></i>'*/
                     removeIcon: '', /*'<i class="glyphicon glyphicon-trash"></i>'*/
                     removeTitle: '', /*'Cancel or reset changes'*/
                     elErrorContainer: '#kv-avatar-errors',

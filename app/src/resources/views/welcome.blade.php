@@ -244,7 +244,7 @@
                         </div>
                         
                         <div class="col-md-offset-3 col-md-6 text-center " id="confirm_rsvp" style="display:none">
-                            <p>Por favor completar una vez por cada persona!</p>
+                            <p>Completar una vez por cada persona!</p>
                             <form action="/rsvp">  
                                 <div class="form-group row">
                                     <div class="col-sm-2"></div>
@@ -283,6 +283,7 @@
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-12">
+                                        <p>Para confirmar tenés que subir tu selfie!</p>
                                         <div class="kv-avatar center-block" >
                                             <input id="autofoto" name="autofoto" type="file" accept="image/*">
                                         </div>
@@ -493,7 +494,7 @@ $(function () {
                     showCaption: false,
                     browseLabel: '',
                     removeLabel: 'Quitar',
-                    browseIcon: 'Para confirmar subí tu selfie acá: <i class="glyphicon glyphicon-picture"></i> ', /*<i class="glyphicon glyphicon-picture"></i>'*/
+                    browseIcon: 'Confirmar con mi selfie <i class="glyphicon glyphicon-picture"></i> ', /*<i class="glyphicon glyphicon-picture"></i>'*/
                     removeIcon: '', /*'<i class="glyphicon glyphicon-trash"></i>'*/
                     removeTitle: '', /*'Cancel or reset changes'*/
                     elErrorContainer: '#kv-avatar-errors',

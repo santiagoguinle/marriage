@@ -215,11 +215,12 @@
                         </div>
 
                         <div class="col-md-offset-3 col-md-6 text-center " id="cancel_rsvp" style="display:none">
-                            <video width="" muted="" autoplay="autoplay" poster="https://statics.memondo.com/p/99/gifs/2014/04/GIF_193856_b097a47b741341ba966c7c35bdb4ab25_cuando_la_chica_que_te_gusta_te_dice_que_tiene_novio_thumb.jpg?cb=6215638" loop="">
+                            <img src="https://thumbs.gfycat.com/AlienatedBriefBlackbuck-small.gif" />
+                            <!--video width="" muted="" autoplay="autoplay" poster="https://statics.memondo.com/p/99/gifs/2014/04/GIF_193856_b097a47b741341ba966c7c35bdb4ab25_cuando_la_chica_que_te_gusta_te_dice_que_tiene_novio_thumb.jpg?cb=6215638" loop="">
                                     <source src="https://statics.memondo.com/p/99/gifs/2014/04/GIF_193856_b097a47b741341ba966c7c35bdb4ab25_cuando_la_chica_que_te_gusta_te_dice_que_tiene_novio.webm" type="video/webm">
                                     <source src="https://statics.memondo.com/p/99/gifs/2014/04/GIF_193856_b097a47b741341ba966c7c35bdb4ab25_cuando_la_chica_que_te_gusta_te_dice_que_tiene_novio.mp4" type="video/mp4">
                                     Tu navegador no soporta HTML5 video
-                            </video>
+                            </video-->
                             <p>Dejanos un mensaje! (¡no olvides firmarlo!)</p>
                             <form action="/rsvp/cancellation" method="post">  
                                 {{ csrf_field() }}

@@ -114,7 +114,7 @@
                                 Es preciosa, tiene 27 años y le encanta dormir.<br>
                                 Ñoña, Abogada y medio artista.<br>
                                 Fan de Harry Potter, Star Wars y Gilmore Girls.<br>
-                                Le encanta su compleaños y las sorpresitas.<br> 
+                                Le encanta su cumpleaños y las sorpresitas.<br> 
                                 #El110EsMuyGrande y #VióUnSeñorConBarba
                             </p>
                         </div>

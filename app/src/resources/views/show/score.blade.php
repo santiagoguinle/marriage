@@ -121,9 +121,19 @@
     </div>
 
     <div class="container-contact3-form-btn wrap-contact3-show-options">
+        <a href="/main/previous" class="contact3-form-btn">
+            Anterior pregunta
+        </a>
+        @if ($question->order < 15)
         <a href="/main/next" class="contact3-form-btn">
             Siguiente pregunta
         </a>
+        @endif
+        @if ($question->order == 15)
+        <a href="/main/close" class="contact3-form-btn">
+            Finalizar
+        </a>
+        @endif
     </div>
 </form>
 

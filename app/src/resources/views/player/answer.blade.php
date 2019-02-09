@@ -14,7 +14,9 @@
         text-decoration: line-through;
     }
     .label-radio3.correct{
-        font-weight: bold;
+        
+    font-size: 30px;
+
     }
 </style>
 @endsection
@@ -35,7 +37,7 @@
             @if($option->id==$question->question_option_id) 
                 <div class="contact3-form-radio m-r-42">
                     <label class="label-radio3 correct">
-                        -> {{ $option->option }} <-
+                        {{ $option->option }}
                     </label>
                 </div>
             @else

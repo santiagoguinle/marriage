@@ -116,22 +116,22 @@
     <div class="wrap-contact3-show-options">
     </div>
 
-   
-   
-
-
-
-
-
-
-
     <div class="container-contact3-form-btn wrap-contact3-show-options">
-        <a href="/main/score" class="contact3-form-btn">
-            Ver Puntajes
+        <a href="/main/previous" class="contact3-form-btn">
+            Anterior pregunta
         </a>
+        <a href="/main/score" class="contact3-form-btn">
+            @if ($question->order < 15)
+            Ver Puntajes
+            @else
+            Ver Ganadores
+            @endif
+        </a>
+        @if ($question->order < 15)
         <a href="/main/next" class="contact3-form-btn">
             Siguiente pregunta
         </a>
+        @endif
     </div>
 </form>
 @endsection

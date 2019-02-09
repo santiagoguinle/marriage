@@ -8,6 +8,9 @@ use DB;
 
 class QuizQuestion extends Model
 {
+    
+    const ACTIVE_NO=0;
+    const ACTIVE_YES=1;
 
     protected $table = "quiz_questions";
     /**
@@ -16,7 +19,7 @@ class QuizQuestion extends Model
      * @var array
      */
     protected $fillable = [
-        'question', 'description',
+        'question', 'description','quiz_id','order','id',
     ];
 
     /**
@@ -26,13 +29,33 @@ class QuizQuestion extends Model
      */
     protected $hidden = [];
     
-    public function getFirstUnanswered()
+    public function getById($id)
     {
-        $playerLogin = self::where("code", "=", $code)->get()->first();
-        if(!$playerLogin){
-            return;
-        }
-        session(['player' => $playerLogin]);
-        return $playerLogin;
+        return self::where("id", "=", $id)->get()->first();
     }
+    public function getOptionById($id)
+    {
+        return self::from("quiz_question_options")->where("id", "=", $id)->get()->first();
+    }
+    public function getByPosition($id)
+    {
+        return self::where("order", "=", $id)->get()->first();
+    }
+    
+    public function activate($question)
+    {
+        $question->activate = self::ACTIVE_YES;
+        self::where("id", "=", $question->id)->update(["active" => self::ACTIVE_YES]);
+        return $question;
+    }
+    public function deactivateAll()
+    {
+        return self::where("active","=",self::ACTIVE_YES)->update(["active" => self::ACTIVE_NO]);
+    }
+    
+    public function cleanAnswers()
+    {
+        return DB::table('quiz_answers')->delete();
+    }
+
 }

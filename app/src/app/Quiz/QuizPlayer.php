@@ -37,10 +37,26 @@ class QuizPlayer extends Model
         if (!$playerLogin) {
             return;
         }
+        $this->saveLogin($code);
         session(['player' => $playerLogin]);
         return $playerLogin;
     }
 
+    public function saveLogin($code)
+    {
+        self::where("code", "=", $code)->update(["last_login_at"=>date("Y-m-d H:i:s")]);
+    }
+    public function getConnected()
+    {
+        $now=new \DateTime(date("Y-m-d H:i:s"));
+        $now->sub(new \DateInterval("PT4H"));
+        return $this->where("last_login_at",">",$now->format("Y-m-d H:i:s"))->get();
+    }
+    public function getAll()
+    {
+        return $this->get();
+    }
+    
     public function getFirstUnanswered()
     {
         $player = session("player");
@@ -55,6 +71,7 @@ class QuizPlayer extends Model
                 })
                 ->where("quizs.available", ">=", "1")
                 ->whereNull("quiz_answers.player_id")
+                ->where("quiz_questions.active", ">=", "1")
                 ->orderBy("quiz_questions.order", "asc")
                 ->limit(1)
                 ->from("quizs");

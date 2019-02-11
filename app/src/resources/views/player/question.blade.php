@@ -1,6 +1,8 @@
 @extends('layoutGame')
 
-@section('title', 'Pregunta #{{ $question->order }}')
+@section('title')
+Pregunta #{{ $question->order }}
+@endsection('title')
 
 @section('scripts')
 @endsection

@@ -1,6 +1,8 @@
 @extends('layoutGame')
 
-@section('title', 'Respuestas #{{ $question->order }}')
+@section('title')
+Respuestas #{{ $question->order }}
+@endsection('title')
 
 @section('scripts')
 <script src="https://code.highcharts.com/js/highcharts.js"></script>

@@ -1,6 +1,8 @@
 @extends('layoutGame')
 
-@section('title', 'Pregunta #{{ $question->order }}')
+@section('title') 
+Pregunta #{{ $question->order }}
+@endsection('title')
 
 @section('scripts')
 <script type="text/javascript">
@@ -74,9 +76,10 @@
         line-height: 1.2;
         text-align: center;
         text-transform: uppercase;
-        padding-bottom: 10px;
         float: left; 
-        margin: 10px;
+        margin: 4px;
+        padding: 4px;
+        font-size:14px;
     }
     .playerunanswer{
         float: right; 

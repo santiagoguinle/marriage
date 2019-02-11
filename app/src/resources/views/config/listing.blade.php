@@ -1,6 +1,6 @@
 @extends('layoutGame')
 
-@section('title', 'Respuestas #{{ $question->order }}')
+@section('title', 'Editando preguntas')
 
 @section('scripts')
      <script type="text/javascript">

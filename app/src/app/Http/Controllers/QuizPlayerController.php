@@ -49,6 +49,7 @@ class QuizPlayerController extends Controller
         return view('player/main');
     }
     
+    
     public function question(\Illuminate\Http\Request $request)
     {
         $QuizPlayer = new QuizPlayer();
@@ -76,7 +77,14 @@ class QuizPlayerController extends Controller
     {   
         $QuizPlayer = new QuizPlayer();
         $question = $QuizPlayer->getLastAnswered();
-        return view('player/answer', ["player" => session("player"), "question" => $question]);
+        $player=session("player");
+        if(!$player){
+            return redirect("/play");
+        }
+        if(!$question){
+            return view('player/wait', ["player" => $player]);
+        }
+        return view('player/answer', ["player" => $player, "question" => $question]);
     }
 
 }

@@ -17,7 +17,7 @@
         function askBar(){
             $.get( "/main/ajaxConnected", { } )
             .done(function( data ) {
-               animate(data.length/24);
+               animate(data.length/22);
                setTimeout("askBar()", 5000);
             });
         }

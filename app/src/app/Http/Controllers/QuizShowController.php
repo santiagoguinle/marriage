@@ -116,5 +116,12 @@ class QuizShowController extends Controller
         $question = $QuizShow->getQuestion(session("active_question"));
         return view('show/score', ["question" => $question,"score" => $score]);
     }
+    
+    public function theend(\Illuminate\Http\Request $request)
+    {
+        $QuizShow = new \App\Quiz\QuizShow();
+        $score = $QuizShow->getScore();
+        return view('show/theend', ["scores" => $score]);
+    }
 
 }
